@@ -33,7 +33,7 @@ class Channel(object):
                 if self.name.startswith("private-") or self.name.startswith("presence-"):
                     self.connection.send_event(event_name, data, channel_name=self.name)
 
-    def _handle_event(self, event_name, data):
+    def _handle_event(self, event_name, data, channel_name):
         if event_name in self.event_callbacks.keys():
             for callback in self.event_callbacks[event_name]:
-                callback(data)
+                callback((event_name, data, channel_name))

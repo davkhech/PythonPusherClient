@@ -98,7 +98,7 @@ class Pusher(object):
 
     def _connection_handler(self, event_name, data, channel_name):
         if channel_name in self.channels:
-            self.channels[channel_name]._handle_event(event_name, data)
+            self.channels[channel_name]._handle_event(event_name, data, channel_name)
 
     @staticmethod
     def _generate_private_key(socket_id, key, channel_name, secret):
