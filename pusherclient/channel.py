@@ -1,3 +1,6 @@
+import json
+
+
 class Channel(object):
     def __init__(self, channel_name, connection):
         self.name = channel_name
@@ -36,4 +39,4 @@ class Channel(object):
     def _handle_event(self, event_name, data, channel_name):
         if event_name in self.event_callbacks.keys():
             for callback in self.event_callbacks[event_name]:
-                callback((event_name, data, channel_name))
+                callback((event_name, json.loads(data), channel_name))
