@@ -39,7 +39,7 @@ class Connection(Thread):
         self.logger = logging.getLogger(self.__module__)  # create a new logger
         if log_level == logging.DEBUG:
             websocket.enableTrace(True)
-        self.logger.setLevel(log_level)
+        self.logger.setLevel(logging.ERROR)
 
         # From Martyn's comment at:
         # https://pusher.tenderapp.com/discussions/problems/36-no-messages-received-after-1-idle-minute-heartbeat
